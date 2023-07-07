@@ -1,0 +1,30 @@
+Form {
+  padding: 20px;
+  box-shadow: 0 0 5px rgb(143, 4, 99);
+  box-sizing: border-box;
+}
+
+.color {
+  background-color: rgb(103, 8, 65) !important;
+  color: white !important;
+  width: 100%;
+}
+
+.form-contact {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.form-contact input {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-contact label {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+}

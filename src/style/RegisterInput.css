@@ -1,0 +1,30 @@
+.form-container {
+  margin: 0;
+  padding: 0;
+}
+
+.form-container h1 {
+  margin-top: 200px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.form-container Form {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form-container Button {
+  width: 100%;
+}
+
+/* Breakpoint */
+
+@media screen and (min-width: 856px) {
+  .form-container Form {
+    width: 40%;
+  }
+}

@@ -1,0 +1,66 @@
+@import '../component/navbar/nav.css';
+@import '../component/addKaryawan/addKaryawan.css';
+@import './RegisterInput.css';
+
+/* awal tablePelanggan */
+.table-pelanggan td {
+  font-size: 12px;
+}
+
+.table-pelanggan th {
+  font-size: 12px;
+}
+
+table.scroll {
+  width: 100%;
+  border: 1px #58063b solid;
+}
+Table.scroll thead {
+  display: table;
+  width: 100%;
+  background-color: rgb(142, 16, 94);
+}
+Table.scroll tbody {
+  display: block;
+  height: 100px;
+  overflow: auto;
+  width: 100%;
+}
+Table.scroll tbody tr {
+  display: table;
+  width: 100%;
+}
+
+Table.scroll th {
+  width: 13%;
+  font-size: 12px;
+  padding: 8px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+Table.scroll td {
+  width: 13%;
+  font-size: 10px;
+  height: 30px;
+  text-align: center;
+}
+
+Table.scroll th:nth-child(1) {
+  width: 8%;
+}
+
+Table.scroll td:nth-child(7) {
+  text-align: left;
+}
+
+Table.scroll th:nth-child(7) {
+  text-align: left;
+}
+
+Table.scroll td:nth-child(1) {
+  width: 8%;
+}
+
+/* Akhir tablePelanggan */
+
+/* ======================== */
