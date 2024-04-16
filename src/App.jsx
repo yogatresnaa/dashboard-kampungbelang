@@ -67,6 +67,9 @@ import './style/style.css';
 // }
 
 // functional component
+
+//
+
 function App() {
   const [authedUser, setauthedUser] = React.useState(null);
 
