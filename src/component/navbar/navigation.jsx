@@ -23,6 +23,12 @@ function NavigationDashboard() {
               Data Karyawan
             </Link>
           </li>
+
+          <li>
+            <Link style={{ textDecoration: 'none', color: 'white', fontSize: '30px' }} to='/input-data-karyawan'>
+              Input Data Karyawan
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

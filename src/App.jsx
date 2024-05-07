@@ -7,6 +7,8 @@ import NavigationDashboard from './component/navbar/navigation';
 import PageHome from './pages/PageHome';
 import PageKaryawan from './pages/PageKaryawan';
 
+import PageInputDataKaryawan from './pages/PageInputDataKarywan';
+
 //
 import RegisterPage from '../src/pages/RegisterPage';
 import LoginPage from '../src/pages/LoginPage';
@@ -105,6 +107,7 @@ function App() {
           <Route path='/' element={<PageHome />} />
           <Route path='/datacustomer' element={<TablePelanggan />} />
           <Route path='/datakaryawan' element={<PageKaryawan />} />
+          <Route path='/input-data-karyawan' element={<PageInputDataKaryawan />} />
         </Routes>
       </main>
     </Container>

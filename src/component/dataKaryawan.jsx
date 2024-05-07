@@ -1,13 +1,40 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import Data_karyawan from '../utils/Data_karyawan';
-import AddKaryawan from '../component/addKaryawan/addKaryawan';
+import CONFIG from '../globals/config';
+import Modal from 'react-modal';
+import EditDataKaryawan from './editKaryawan/editDataKaryawan';
+import { useParams } from 'react-router-dom';
 
 function DataKaryawan() {
-  const [karyawan] = React.useState(() => Data_karyawan());
+  const [karyawan, setKaryawan] = React.useState([]);
+  const { entityId } = useParams();
+
+  const [modalIsOpen, setModalIsOpen] = React.useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${CONFIG.BASE_URL}karyawan`);
+        const responsJson = await response.json();
+        setKaryawan(responsJson.data.karyawan);
+        console.log(responsJson);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
-      <AddKaryawan />
       <br></br>
       <h1>DATA KARYAWAN</h1>
       <p>RESTO KAMPUNG BELANG</p>
@@ -23,6 +50,7 @@ function DataKaryawan() {
             <th>Awal Bergabung</th>
             <th>Posisi</th>
             <th>Gaji</th>
+            <th>Aksi</th>
           </tr>
         </thead>
 
@@ -32,12 +60,24 @@ function DataKaryawan() {
               <tr>
                 <td>{Nomer + 1}.</td>
                 <td>{kar.id}</td>
-                <td>{kar.Nama}</td>
-                <td>{kar.Alamat}</td>
-                <td>{kar.NoHp}</td>
-                <td>{kar.AwalMasuk}</td>
-                <td>{kar.Posisi}</td>
-                <td>{kar.Gaji}</td>
+                <td>{kar.nama}</td>
+                <td>{kar.alamat}</td>
+                <td>{kar.noHp}</td>
+                <td>{kar.awalmasuk}</td>
+                <td>{kar.posisi}</td>
+                <td>{kar.gaji}</td>
+                <td>
+                  <div>
+                    <button style={{ color: 'white', backgroundColor: 'green' }} onClick={openModal}>
+                      Edit
+                      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel='Form Edit Data'>
+                        <EditDataKaryawan entityId={entityId} closeModal={closeModal} />
+                      </Modal>
+                    </button>
+                  </div>
+
+                  <button style={{ color: 'white', backgroundColor: 'red' }}>Delete</button>
+                </td>
               </tr>
             </tbody>
           );

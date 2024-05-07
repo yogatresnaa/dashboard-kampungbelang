@@ -12,12 +12,12 @@ function RegisterPage() {
     }
   }
   return (
-    <>
+    <div className='regisInput'>
       <RegisterInput register={onRegisterHandler} />
-      <p>
+      <p className='log'>
         Kembali ke <Link to='/'>Login</Link>
       </p>
-    </>
+    </div>
   );
 }
 

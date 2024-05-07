@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.log {
+  width: 250px;
+  margin: 20px auto;
+}
+
 /* Breakpoint */
 
 @media screen and (min-width: 856px) {

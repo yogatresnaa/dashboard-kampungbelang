@@ -14,7 +14,7 @@ function LoginPage({ loginSuccess, id }) {
   return (
     <div>
       <LoginInput login={onLogin} />
-      <p>
+      <p className='log'>
         Belum Registrasi ? <Link to='/registrasi'>Registrasi di sini. </Link>
       </p>
     </div>
