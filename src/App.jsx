@@ -12,7 +12,9 @@ import PageInputDataKaryawan from './pages/PageInputDataKarywan';
 //
 import RegisterPage from '../src/pages/RegisterPage';
 import LoginPage from '../src/pages/LoginPage';
-import { getUserLogged, putAccessToken } from '../src/utils/api';
+// import { getUserLogged, setAccessToken } from '../src/utils/api';
+import { getUserLogged } from './api';
+import { setAccessToken } from './utils/token';
 
 import './style/style.css';
 
@@ -76,10 +78,13 @@ function App() {
   const [authedUser, setauthedUser] = React.useState(null);
 
   const onLoginSuccess = async ({ accessToken }) => {
-    putAccessToken(accessToken);
-
-    const { data } = await getUserLogged();
-    setauthedUser(data);
+    setAccessToken(accessToken);
+    const response = await getUserLogged();
+    if (response.error) {
+      console.error('Failed to fetch user:', response.message);
+    } else {
+      setauthedUser(response.data);
+    }
   };
 
   if (authedUser === null) {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import DataKaryawan from '../component/dataKaryawan';
 
 function PageKaryawan() {

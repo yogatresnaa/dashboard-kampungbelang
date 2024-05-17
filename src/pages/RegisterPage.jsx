@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import RegisterInput from '../component/RegisterInput';
-import { register } from '../utils/api';
+// import { register } from '../utils/api';
+import { register } from '../api';
 
 function RegisterPage() {
   const navigate = useNavigate();

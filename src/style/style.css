@@ -1,5 +1,5 @@
 @import '../component/navbar/nav.css';
-@import '../component/addKaryawan/addKaryawan.css';
+@import './addKaryawan.css';
 @import './RegisterInput.css';
 
 /* awal tablePelanggan */
@@ -64,3 +64,12 @@ Table.scroll td:nth-child(1) {
 /* Akhir tablePelanggan */
 
 /* ======================== */
+.karyawan-item__delete {
+  padding: 3px;
+  font-size: 10px;
+  background-color: orangered;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
