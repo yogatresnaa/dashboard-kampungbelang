@@ -14,7 +14,9 @@ import RegisterPage from '../src/pages/RegisterPage';
 import LoginPage from '../src/pages/LoginPage';
 // import { getUserLogged, setAccessToken } from '../src/utils/api';
 import { getUserLogged } from './api';
-import { setAccessToken } from './utils/token';
+import { setAccessToken, setRefreshToken } from './utils/token';
+import { useNavigate } from 'react-router-dom';
+import { logout } from './api';
 
 import './style/style.css';
 
@@ -77,13 +79,25 @@ import './style/style.css';
 function App() {
   const [authedUser, setauthedUser] = React.useState(null);
 
-  const onLoginSuccess = async ({ accessToken }) => {
+  const onLoginSuccess = async ({ accessToken, refreshToken }) => {
     setAccessToken(accessToken);
+    setRefreshToken(refreshToken);
     const response = await getUserLogged();
     if (response.error) {
       console.error('Failed to fetch user:', response.message);
     } else {
       setauthedUser(response.data);
+    }
+  };
+
+  const navigate = useNavigate();
+  const handleLogut = async () => {
+    const result = await logout();
+    if (!result.error) {
+      setauthedUser(null);
+      navigate('/');
+    } else {
+      alert(result.message || 'Failed to logout');
     }
   };
 
@@ -106,6 +120,7 @@ function App() {
     <Container>
       <header>
         <NavigationDashboard />
+        <button onClick={handleLogut}>Logut</button>
       </header>
       <main>
         <Routes>

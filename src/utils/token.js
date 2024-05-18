@@ -19,4 +19,17 @@ function decodeAccessToken(token) {
   }
 }
 
-export { getAccessToken, setAccessToken, removeAccessToken, decodeAccessToken };
+// Refresh Token Management
+function getRefreshToken() {
+  return localStorage.getItem('refreshToken');
+}
+
+function setRefreshToken(refreshToken) {
+  return localStorage.setItem('refreshToken', refreshToken);
+}
+
+function removeRefreshToken() {
+  return localStorage.removeItem('refreshToken');
+}
+
+export { getAccessToken, setAccessToken, removeAccessToken, decodeAccessToken, getRefreshToken, setRefreshToken, removeRefreshToken };

@@ -1,5 +1,5 @@
 import CONFIG from '../globals/config';
-import { getAccessToken, removeAccessToken } from '../utils/token';
+import { removeAccessToken, removeRefreshToken, getRefreshToken } from '../utils/token';
 
 // User Registration
 async function register({ username, password, fullname }) {
@@ -48,23 +48,24 @@ async function login({ username, password }) {
 // User Logout
 async function logout() {
   try {
+    const refreshToken = getRefreshToken();
     const response = await fetch(`${CONFIG.BASE_URL}authentications`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${getAccessToken()}`,
+        Authorization: `Bearer ${getRefreshToken()}`,
       },
+      body: JSON.stringify({ refreshToken }),
     });
-
+    console.log(response);
     const responseJson = await response.json();
-
     if (responseJson.status !== 'success') {
       alert(responseJson.message);
       return { error: true };
     }
     // Hapus token dari local storage
     removeAccessToken();
-
+    removeRefreshToken(); // Hapus refresh token
     return { error: false };
   } catch (error) {
     return { error: true, message: error.message };

@@ -7,6 +7,7 @@ function NavigationDashboard() {
       <nav>
         <h1>DASHBOARD</h1>
         <p>RESTO KAMPUNG BELANG</p>
+
         <ul className='nav'>
           <li>
             <Link style={{ textDecoration: 'none', color: 'white', fontSize: '30px' }} to='/'>
